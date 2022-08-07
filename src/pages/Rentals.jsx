@@ -1,15 +1,16 @@
-import React from "react";
+import React,{useState} from "react";
 import "./Rentals.css"
 import { Link } from "react-router-dom";
 import logo from "../images/airbnbRed.png"
-import { ConnectButton, Icon } from "web3uikit";
+import { ConnectButton, Icon,Button } from "web3uikit";
 import { useLocation } from "react-router";
 
 const Rentals = () => {
 
   const { state: searchFilters } = useLocation();
+  const [highLight, setHighLight] = useState();
   const rentalsList = [
-    [
+    
       {
         attributes: {
           city: "New York",
@@ -23,7 +24,7 @@ const Rentals = () => {
           pricePerDay: "3",
         },
       },
-    ]
+    
   ]
   return (
     <>
@@ -72,6 +73,41 @@ const Rentals = () => {
       <div className="rentalsContent">
         <div className="rentalsContentL">
           Stay Available for your Destinations
+          {rentalsList &&
+            rentalsList.map((item,index) => {
+           
+              return (
+                <>
+                 <hr className="line2" />
+                  <div key={index} className={highLight == index ? "rentalDivH " : "rentalDiv"}>
+                    <img className="rentalImg"
+                     src={item.attributes.imgUrl}
+                      alt="img"/>
+                    <div className="rentalInfo">
+                      <div className="rentalTitle">
+                        {item.attributes.name}
+                      </div>
+                      <div className="rentalDesc">
+                        {item.attributes.unoDescription}
+                      </div>
+                      <div className="rentalDesc">
+                        {item.attributes.dosDescription}
+                      </div>
+                      <div className="bottomButton">
+                        <Button 
+                        
+                        text="Stay Here" />
+                        <div className="price">
+                          <Icon fill="#808080" size={10} svg="matic" />
+                          {item.attributes.pricePerDay} / Day
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </>
+            )
+            })
+          }
         </div>
         <div className="rentalsContentR">
         </div>
