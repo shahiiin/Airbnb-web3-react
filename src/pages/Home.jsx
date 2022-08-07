@@ -9,11 +9,25 @@ import logo from "../images/airbnb.png"
 const Home = () => {
 
   return (
-    <div className="container" style={{ backgroundImage: `url(${bg})` }}>
-      <div className="containerGradinet">
-
+    <>
+      <div className="container" style={{ backgroundImage: `url(${bg})` }}>
+        <div className="containerGradinet"></div>
       </div>
-    </div>
+      <div className="topBanner">
+        <div>
+          <img className="logo" src={logo} alt="logo" />
+        </div>
+        <div className="tabs">
+          <div className="selected">Place to Stay</div>
+          <div>Experiense</div>
+          <div>Online Experiense</div>
+        </div>
+        <div className="lrContainers">
+
+        </div>
+      </div>
+    </>
+
   );
 };
 
