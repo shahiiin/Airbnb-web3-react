@@ -5,9 +5,7 @@ import bg from "../images/frontpagebg.png"
 import logo from "../images/airbnb.png"
 import { ConnectButton, Select, DatePicker, Input, Icon,Button } from "web3uikit";
 
-
 const Home = () => {
-
   const [checkIn, setCheckIn] = useState(new Date());
   const [checkOut, setCheckOut] = useState(new Date());
   const [destination, setDestination] = useState("New York");
@@ -20,12 +18,12 @@ const Home = () => {
       </div>
       <div className="topBanner">
         <div>
-          <img className="logo" src={logo} alt="logo" />
+          <img className="logo" src={logo} alt="logo"></img>
         </div>
         <div className="tabs">
-          <div className="selected">Place to Stay</div>
-          <div>Experiense</div>
-          <div>Online Experiense</div>
+          <div className="selected">Places To Stay</div>
+          <div>Experiences</div>
+          <div>Online Experiences</div>
         </div>
         <div className="lrContainers">
           <ConnectButton />
@@ -41,20 +39,19 @@ const Home = () => {
               options={[
                 {
                   id: "ny",
-                  label: "New York"
+                  label: "New York",
                 },
-
                 {
                   id: "lon",
-                  label: "London"
+                  label: "London",
                 },
                 {
                   id: "db",
-                  label: "Dubai"
+                  label: "Dubai",
                 },
                 {
                   id: "la",
-                  label: "Los angles"
+                  label: "Los Angeles",
                 },
               ]}
             />
@@ -63,24 +60,24 @@ const Home = () => {
           <div className="inputs">
             Check In
             <DatePicker
-              id="checkIn"
-              onChange={(event) => setCheckIn(event.checkIn)}
+              id="CheckIn"
+              onChange={(event) => setCheckIn(event.date)}
             />
           </div>
           <div className="vl" />
           <div className="inputs">
             Check Out
             <DatePicker
-              id="checkOut"
-              onChange={(event) => setCheckOut(event.checkOut)}
+              id="CheckOut"
+              onChange={(event) => setCheckOut(event.date)}
             />
           </div>
           <div className="vl" />
           <div className="inputs">
-            Gests
+            Guests
             <Input
-              name="AddGests"
               value={2}
+              name="AddGuests"
               type="number"
               onChange={(event) => setGuests(Number(event.target.value))}
             />
@@ -90,13 +87,11 @@ const Home = () => {
             checkIn: checkIn,
             checkOut: checkOut,
             guests: guests
-          }}
-          >
-            <div className="searchButton">
-              <Icon fill="#ffffff" size={24} svg="search" />
-            </div>
+          }}>
+          <div className="searchButton">
+            <Icon fill="#ffffff" size={24} svg="search" />
+          </div>
           </Link>
-
         </div>
       </div>
       <div className="randomLocation">
@@ -111,7 +106,6 @@ const Home = () => {
         />
       </div>
     </>
-
   );
 };
 
